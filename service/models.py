@@ -1,10 +1,10 @@
-import logging
-
 class DataValidationError(Exception):
     """Used for data validation errors when deserializing"""
 
+
 class Account:
     """Class that represents an Account"""
+
     data = []
     index = 0
 
@@ -66,7 +66,11 @@ class Account:
             self.address = data["address"]
             self.phone_number = data["phone_number"]
         except KeyError as error:
-            raise DataValidationError("Invalid Account: missing " + error.args[0])
+            raise DataValidationError(
+                "Invalid Account: missing " + error.args[0]
+            )
         except TypeError:
-            raise DataValidationError("Invalid Account: body of request contained bad or no data")
+            raise DataValidationError(
+                "Invalid Account: bad or no data"
+            )
         return self
