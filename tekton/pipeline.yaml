@@ -1,0 +1,32 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: accounts-pipeline
+spec:
+  params:
+    - name: repo-url
+    - name: branch
+  tasks:
+    - name: clone
+      taskRef:
+        name: git-clone
+
+    - name: lint
+      runAfter: ["clone"]
+      taskRef:
+        name: flake8
+
+    - name: test
+      runAfter: ["lint"]
+      taskRef:
+        name: nose
+
+    - name: build
+      runAfter: ["test"]
+      taskRef:
+        name: buildah
+
+    - name: deploy
+      runAfter: ["build"]
+      taskRef:
+        name: openshift-client

@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: nose
+spec:
+  steps:
+    - name: test
+      image: python:3.9
+      script: |
+        pip install -r requirements.txt
+        nosetests
