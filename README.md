@@ -1,3 +1,4 @@
+![CI](https://github.com/Yayan45/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)
 # DevOps Capstone Project
 
 This project is a Customer Accounts microservice.
