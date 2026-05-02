@@ -3,9 +3,11 @@ from service import app
 from service.models import Account
 
 
+
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "OK"}), 200
+
 
 
 @app.route("/accounts", methods=["POST"])
@@ -18,12 +20,14 @@ def create_accounts():
     return jsonify(account.serialize()), 201
 
 
+
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
     """Lists all Accounts"""
     accounts = Account.all()
     results = [account.serialize() for account in accounts]
     return jsonify(results), 200
+
 
 
 @app.route("/accounts/<int:account_id>", methods=["GET"])
@@ -33,6 +37,7 @@ def get_accounts(account_id):
     if not account:
         return jsonify({"message": "Account not found"}), 404
     return jsonify(account.serialize()), 200
+
 
 
 @app.route("/accounts/<int:account_id>", methods=["PUT"])
@@ -46,6 +51,7 @@ def update_accounts(account_id):
     account.deserialize(data)
     account.update()
     return jsonify(account.serialize()), 200
+
 
 
 @app.route("/accounts/<int:account_id>", methods=["DELETE"])

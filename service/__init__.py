@@ -4,12 +4,11 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-# Security headers
 talisman = Talisman(app)
 talisman.force_https = False
 
-# CORS
 CORS(app)
+
 
 @app.route("/accounts", methods=["GET"])
 def get_accounts():
