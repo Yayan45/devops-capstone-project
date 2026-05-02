@@ -1,0 +1,3 @@
+Deployment created
+Pod running
+Service available

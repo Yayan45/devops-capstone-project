@@ -1,0 +1,6 @@
+curl -X POST http://localhost:5000/accounts
+Response:
+{
+  "id": 1,
+  "name": "Yayan"
+}

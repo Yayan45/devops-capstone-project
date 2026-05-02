@@ -1,0 +1,6 @@
+curl -X GET http://localhost:5000/accounts/1
+Response:
+{
+  "id": 1,
+  "name": "Yayan"
+}
