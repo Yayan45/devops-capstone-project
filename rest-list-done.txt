@@ -1,8 +1,12 @@
-curl -X GET http://localhost:5000/accounts
+curl -X GET http://127.0.0.1:5000/accounts
+
 Response:
 [
   {
     "id": 1,
-    "name": "Yayan"
+    "name": "Yayan",
+    "email": "yayan@email.com",
+    "address": "Jakarta",
+    "phone_number": "08123456789"
   }
 ]
